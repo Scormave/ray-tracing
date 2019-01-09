@@ -16,7 +16,7 @@ list (APPEND EXTERNAL_LIBRARIES zlibstatic)
 
 # PNG
 set(SKIP_INSTALL_ALL ON)
-set(ZLIB_INCLUDE_DIR third-party/zlib-1.2.11)
+set(ZLIB_INCLUDE_DIR ${EXTERNAL_PATH}/zlib-1.2.11)
 set(ZLIB_LIBRARY zlibstatic)
 set(PNG_BUILD_ZLIB ON)
 set(PNG_SHARED OFF)
