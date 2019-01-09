@@ -21,7 +21,7 @@ Intersection closestIntersection(Ray ray, float t_min, float t_max);
 int main()
 {
     printf("Preparing for rendering...\n");
-    unsigned char buffer[CanvasWidth * 3];
+    unsigned char* buffer = malloc(CanvasWidth * 3);
     RayTracingScene = createScene();
     PNG* png = createPng("result.png", CanvasWidth, CanvasHeight, "Result");
 
@@ -48,9 +48,10 @@ int main()
     clock_t end = clock();
     float seconds = (float)(end - start)*1000 / CLOCKS_PER_SEC;
     printf("Done! Elapsed time: %.00fms\n", seconds);
-
-    freePng(png);
+    
+    free(buffer);
     freeScene(RayTracingScene);
+    freePng(png);
 
     return 0;
 }
